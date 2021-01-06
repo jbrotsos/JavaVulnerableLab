@@ -52,7 +52,6 @@ public class Install extends HttpServlet {
         
         //Getting Database Configuration from User Input
         dburl = 1; //request.getParameter("dburl");
-        test = 2;
         jdbcdriver = 2; //request.getParameter("jdbcdriver");
         dbuser = 2; //request.getParameter("dbuser");
         dbpass = 2; //request.getParameter("dbpass");
