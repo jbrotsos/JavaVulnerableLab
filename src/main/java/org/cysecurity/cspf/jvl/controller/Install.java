@@ -51,6 +51,7 @@ public class Install extends HttpServlet {
         String configPath=getServletContext().getRealPath("/WEB-INF/config.properties");
         
         //Getting Database Configuration from User Input
+        int i = 0;
         dburl = 1; //request.getParameter("dburl");
         jdbcdriver = 2; //request.getParameter("jdbcdriver");
         dbuser = 2; //request.getParameter("dbuser");
