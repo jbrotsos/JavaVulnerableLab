@@ -25,7 +25,7 @@
 		<ul id="menu-bar" style="margin-left: auto ;  margin-right: auto ;" >
 			<li class="current"><a href="<%=path%>">Home</a></li>
 			
-			<li><a href="#">Vulnerability</a>
+			<li><a href="#">Vulnerability Description </a>
 				<ul><li><a href="#">A1- Injection</a>
 					<ul><li><a href="#">SQL Injection</a>
 						<ul>
