@@ -70,6 +70,7 @@ public class AddPage extends HttpServlet {
             out.print(e);
         }
         finally {
+            int x = 0;
             out.close();
         }
     }
