@@ -41,6 +41,7 @@ public class UsernameCheck extends HttpServlet {
         try {
                Connection con=new DBConnect().connect(getServletContext().getRealPath("/WEB-INF/config.properties"));
                String user=request.getParameter("username").trim();
+               String username=request.getParameter("username").trim();
                JSONObject json=new JSONObject();
                 JSONArray jsont=new JSONArray();
                 
