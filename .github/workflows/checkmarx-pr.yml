@@ -6,7 +6,7 @@
 #   - CHECKMARX_PASSWORD
 #   - CHECKMARX_CLIENT_SECRET
 #   - GH_TOKEN
-##
+#
 # Update the 'team' field to reflect the team name used in Checkmarx.
 #
 # For full documentation,including a list of all inputs, please refer to the README https://github.com/checkmarx-ts/checkmarx-cxflow-github-action
