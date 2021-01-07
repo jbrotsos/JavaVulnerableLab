@@ -82,7 +82,7 @@
 				  	    </ul>
 						
 					</li>
-					<li><a href="#">A4-Insecure Direct Object References</a>
+					<li><a href="#">A4-Insecure Direct Object Reference Test</a>
 					<ul>
                                             <li><a href="<%=path%>/myprofile.jsp?id=<% if(session.getAttribute("userid")!=null){ out.print(session.getAttribute("userid"));} %>" title="Make sure you have logged in ">Viewing Details</a>
 						</li>
