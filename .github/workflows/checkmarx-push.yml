@@ -43,4 +43,4 @@ jobs:
         incremental: false
         scanners: sast
         bug_tracker: GitHub
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        params: --severity=High --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
