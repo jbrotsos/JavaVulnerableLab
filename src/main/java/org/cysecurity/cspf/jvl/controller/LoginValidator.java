@@ -40,7 +40,7 @@ public class LoginValidator extends HttpServlet {
             throws ServletException, IOException {
         
        
-       String user=request.getParameter("username").trim();
+           String user=request.getParameter("username").trim();
           String pass=request.getParameter("password").trim();
            try
              {
@@ -51,13 +51,13 @@ public class LoginValidator extends HttpServlet {
                                    Statement stmt = con.createStatement();  
                                    rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
                                    if(rs != null && rs.next()){
-                                   HttpSession session=request.getSession();
-                                   session.setAttribute("isLoggedIn", "1");
-                                   session.setAttribute("userid", rs.getString("id"));
-                                   session.setAttribute("user", rs.getString("username"));
-                                   session.setAttribute("avatar", rs.getString("avatar"));
-                                   Cookie privilege=new Cookie("privilege","user");
-                                   response.addCookie(privilege);
+                                    HttpSession session=request.getSession();
+                                    session.setAttribute("isLoggedIn", "1");
+                                    session.setAttribute("userid", sanitize(rs.getString("id")));
+                                    session.setAttribute("user", sanitize(rs.getString("username")));
+                                    session.setAttribute("avatar", sanitize(rs.getString("avatar")));
+                                    Cookie privilege=new Cookie("privilege","user"));
+                                    response.addCookie(privilege);
                                    if(request.getParameter("RememberMe")!=null)
                                    {
                                        Cookie username=new Cookie("username",user);
@@ -119,4 +119,27 @@ public class LoginValidator extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    @Override
+    public String sanitize(String taintedInput)
+    {
+      CleanResults cr;
+      try
+      {
+        cr = as.scan(taintedInput, policy);
+      }
+      catch (PolicyException e)
+      {
+        log.error("Error loading AntiSamy policy file", e);
+        // If we can't sanitize the input, we will just swallow the whole thing, and
+        // return an empty string, rather than display tainted content
+        return "";
+      }
+      catch (ScanException e)
+      {
+        log.debug("Error scanning input with AntiSamy", e);
+        return "";
+      }
+      return cr.getCleanHTML();
+    }
+  }
 }
