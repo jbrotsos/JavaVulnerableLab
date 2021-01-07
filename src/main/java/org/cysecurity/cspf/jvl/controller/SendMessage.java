@@ -106,7 +106,7 @@ public class SendMessage extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Short description returned";
     }// </editor-fold>
 
 }
