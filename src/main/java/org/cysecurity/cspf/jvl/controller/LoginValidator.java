@@ -80,6 +80,30 @@ public class LoginValidator extends HttpServlet {
                  }
         
     }
+
+    @Override
+    public String sanitize(String taintedInput)
+    {
+      CleanResults cr;
+      try
+      {
+        cr = as.scan(taintedInput, policy);
+      }
+      catch (PolicyException e)
+      {
+        log.error("Error loading AntiSamy policy file", e);
+        // If we can't sanitize the input, we will just swallow the whole thing, and
+        // return an empty string, rather than display tainted content
+        return "";
+      }
+      catch (ScanException e)
+      {
+        log.debug("Error scanning input with AntiSamy", e);
+        return "";
+      }
+      return cr.getCleanHTML();
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -119,27 +143,6 @@ public class LoginValidator extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    @Override
-    public String sanitize(String taintedInput)
-    {
-      CleanResults cr;
-      try
-      {
-        cr = as.scan(taintedInput, policy);
-      }
-      catch (PolicyException e)
-      {
-        log.error("Error loading AntiSamy policy file", e);
-        // If we can't sanitize the input, we will just swallow the whole thing, and
-        // return an empty string, rather than display tainted content
-        return "";
-      }
-      catch (ScanException e)
-      {
-        log.debug("Error scanning input with AntiSamy", e);
-        return "";
-      }
-      return cr.getCleanHTML();
-    }
+
   }
 }
