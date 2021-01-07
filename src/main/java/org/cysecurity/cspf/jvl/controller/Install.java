@@ -52,14 +52,14 @@ public class Install extends HttpServlet {
         
         //Getting Database Configuration from User Input
         int i = 0;
-        dburl = 1; //request.getParameter("dburl");
-        jdbcdriver = 2; //request.getParameter("jdbcdriver");
-        dbuser = 2; //request.getParameter("dbuser");
-        dbpass = 2; //request.getParameter("dbpass");
-        dbname = 2; //request.getParameter("dbname");
-        siteTitle= 2; //request.getParameter("siteTitle");
-        adminuser= 2; //request.getParameter("adminuser");
-        adminpass= 2; //HashMe.hashMe(request.getParameter("adminpass"));
+        dburl = request.getParameter("dburl");
+        jdbcdriver = request.getParameter("jdbcdriver");
+        dbuser = request.getParameter("dbuser");
+        dbpass = request.getParameter("dbpass");
+        dbname = request.getParameter("dbname");
+        siteTitle= request.getParameter("siteTitle");
+        adminuser= request.getParameter("adminuser");
+        adminpass= HashMe.hashMe(request.getParameter("adminpass"));
         
         //Moifying Configuration Properties:
          Properties config=new Properties();
