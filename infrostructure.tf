@@ -1,4 +1,4 @@
-#### INSTANCE HTTP ####
+#### INSTANCE HTTP #####
 
 resource "aws_lb" "front_end" {
   # ...
