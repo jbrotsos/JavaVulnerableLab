@@ -38,4 +38,4 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GitHub
-        params: --sca.thresholds-severity=HIGH --github.block-merge=true --github.error-merge=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
+        params: --sca.thresholds-score=8.5 --github.block-merge=true --github.error-merge=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
