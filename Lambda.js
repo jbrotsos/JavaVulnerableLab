@@ -10,7 +10,7 @@ exports.handler = async (event) => {
 
     let txt = child_process.execSync('curl --silent -L '+documentUrl+'./bin/catdoc -').toString();
 
-    // Lambda response max size is 6MB. The workaround is to upload result to S3 and redirect user to the file1
+    // Lambda response max size is 6MB. The workaround is to upload result to S3 and redirect user to the file2
     let key = uuid.v4();
     let s3 = new AWS.S3();
     await s3.putObject({
