@@ -37,4 +37,4 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GitHub
-        params: --sca.team-for-new-projects='/Champions/jbrots' --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
+        params: --sca.team-for-new-projects='/CxServer/SCA-PM/Champions/jbrots' --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
